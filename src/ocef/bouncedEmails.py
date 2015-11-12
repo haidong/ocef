@@ -43,5 +43,9 @@ class BouncedEmails(object):
         f = open(outputFile, 'w')
         for em in self.allEmailFiles:
             emObj = self.getEmail(em)
-            emailAddress, diagCode = self.getEmailAddrAndDiagCode(emObj)
-            f.write(emailAddress + '\t' + diagCode + '\n')
+            try:
+                emailAddress, diagCode = self.getEmailAddrAndDiagCode(emObj)
+                f.write(emailAddress + '\t' + diagCode + '\n')
+            except:
+                pass
+                #f.write(em + '\n')
